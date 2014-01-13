@@ -5,14 +5,17 @@ class BankAccount
     @customer_name = customer_name
     @type = type
     @acct_number = acct_number
+    @hidden_number = ""
   end
 
-private
   def to_s
-    p hidden_number = (@acct_number.delete "-").gsub(/\d{5}/,'*****')
-    "#{@customer_name}: #{@type}# #{hidden_number}"
+    "#{@customer_name}: #{@type}# #{hide_number}"
   end
 
+  private
+  def hide_number
+    @hidden_number = (@acct_number.delete "-").gsub(/\d{5}/,'*****')
+  end
 
 end
 
