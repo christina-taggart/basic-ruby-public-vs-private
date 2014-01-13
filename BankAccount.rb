@@ -1,4 +1,5 @@
 class BankAccount
+  attr_reader :customer_name, :type, :acct_number
 
   def initialize(customer_name, type, acct_number)
     @customer_name = customer_name
@@ -6,6 +7,7 @@ class BankAccount
     @acct_number = acct_number
   end
 
+private
   def to_s
     p hidden_number = (@acct_number.delete "-").gsub(/\d{5}/,'*****')
     "#{@customer_name}: #{@type}# #{hidden_number}"
